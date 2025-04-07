@@ -1,0 +1,16 @@
+<h2>Upload Audio or Paste Transcript</h2>
+<form method="POST" action="/main" enctype="multipart/form-data">
+  <textarea name="transcript" rows="5" cols="50" placeholder="Paste transcript here..."></textarea><br>
+  <input type="file" name="audio"><br><br>
+  <button type="submit">Check Grammar</button>
+</form>
+
+<% if (result) { %>
+  <h3><%= result %></h3>
+  <h4>Suggestions:</h4>
+  <ul>
+    <% suggestions.forEach(s => { %>
+      <li><%= s %></li>
+    <% }); %>
+  </ul>
+<% } %>

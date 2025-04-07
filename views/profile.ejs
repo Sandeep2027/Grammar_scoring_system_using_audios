@@ -1,0 +1,21 @@
+<h2>Your Profile: <%= user.email %></h2>
+
+<h3>Change Password</h3>
+<form method="POST" action="/update-password">
+  <input type="password" name="newPassword" placeholder="New Password">
+  <button type="submit">Update</button>
+</form>
+
+<h3>Grammar Scores</h3>
+<ul>
+  <% scores.forEach(score => { %>
+    <li><%= score.transcript %> — Score: <%= score.grammar_score %></li>
+  <% }) %>
+</ul>
+
+<h3>Your Previous Queries</h3>
+<ul>
+  <% queries.forEach(q => { %>
+    <li><strong><%= q.subject %></strong>: <%= q.question %></li>
+  <% }) %>
+</ul>

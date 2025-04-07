@@ -1,0 +1,8 @@
+<h2>Contact Us</h2>
+<form method="POST" action="/contact">
+  <input name="email" placeholder="Your email" required><br>
+  <input name="subject" placeholder="Subject" required><br>
+  <textarea name="question" placeholder="Your message..." required></textarea><br>
+  <button type="submit">Send</button>
+</form>
+<% if (message) { %><p><%= message %></p><% } %>
