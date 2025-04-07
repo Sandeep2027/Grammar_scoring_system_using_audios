@@ -1,0 +1,22 @@
+const nlp = require('compromise');
+
+function scoreGrammar(text) {
+  let doc = nlp(text);
+  let issues = 0;
+  if (doc.sentences().length < 1) issues++;
+  if (text.split(' ').length < 3) issues++;
+  if (!/[.?!]$/.test(text)) issues++;
+  return 100 - issues * 25;
+}
+
+function suggestCorrections(text) {
+  let suggestions = [];
+  if (!/[.?!]$/.test(text)) suggestions.push("Add proper punctuation at the end.");
+  if (text.split(' ').length < 3) suggestions.push("Use more descriptive words.");
+  return suggestions.length > 0 ? suggestions : ["Looks good!"];
+}
+
+module.exports = {
+  scoreGrammar,
+  suggestCorrections
+};
